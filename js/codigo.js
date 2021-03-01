@@ -25,8 +25,8 @@ function ajaxCall(url, method, p) {
         .then(data => $(p).text(JSON.stringify(data, null, 2)));
 }
 
-// create or update
-function ajaxCU(url, method, p, x1, x2, x3, x4, x5) {
+// create
+function ajaxCreate(url, method, p, x1, x2, x3, x4, x5) {
     fetch(url,
         {
             headers: {
@@ -35,6 +35,28 @@ function ajaxCU(url, method, p, x1, x2, x3, x4, x5) {
             },
             method: method,
             body: JSON.stringify({
+                Name: x1,
+                Category: x2,
+                Color: x3,
+                UnitPrice: parseFloat(x4),
+                AvailableQuantity: parseInt(x5)
+            })
+        })
+        .then(res => res.json())
+        .then(data => $(p).text(JSON.stringify(data, null, 2)));
+}
+
+// update
+function ajaxUpdate(url, method, p, x, x1, x2, x3, x4, x5) {
+    fetch(url,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + localStorage.getItem('token')
+            },
+            method: method,
+            body: JSON.stringify({
+                ProductId: parseInt(x),
                 Name: x1,
                 Category: x2,
                 Color: x3,
@@ -77,12 +99,12 @@ function postProduct() {
     var x4 = document.getElementById("tUp").value;
     var x5 = document.getElementById("tAq").value;
 
-    ajaxCU('https://localhost:5001/api/Products', 'POST', '#col21', x1, x2, x3, x4, x5);
+    ajaxCreate('https://localhost:5001/api/Products', 'POST', '#col21', x1, x2, x3, x4, x5);
 }
 
 function getById() {
     var x = document.getElementById("gId").value;
-    ajaxCall('https://localhost:5001/api/Products/' + x, 'GET', '#col3');
+    ajaxCall('https://localhost:5001/api/Products/' + x, 'GET', '#col33');
 }
 
 function putById() {
@@ -93,16 +115,25 @@ function putById() {
     var x4 = document.getElementById("pUp").value;
     var x5 = document.getElementById("pAq").value;
 
-    ajaxCU('https://localhost:5001/api/Products/' + x, 'PUT', '#col41', x1, x2, x3, x4, x5);
+    ajaxUpdate('https://localhost:5001/api/Products/' + x, 'PUT', '#col41', x, x1, x2, x3, x4, x5);
 }
 
 function deleteById() {
     var x = document.getElementById("tCode").value;
-    ajaxCall('https://localhost:5001/api/Products/' + x, 'DELETE', '#col5');
+
+    ajaxCall('https://localhost:5001/api/Products/' + x, 'DELETE', '#col51');
+
 }
 
 function getStock() {
-    ajaxCall('https://localhost:5001/api/Products/stock', 'GET', '#col6');
+    var x1 = document.getElementById("stockTrue");
+    var x2 = document.getElementById("stockFalse");
+
+    if (x1.checked) {
+        ajaxCall('https://localhost:5001/api/Products/stock?inStock=true', 'GET', '#col61');
+    } else if (x2.checked) {
+        ajaxCall('https://localhost:5001/api/Products/stock?inStock=false', 'GET', '#col61');
+    }
 }
 
 function postToken() {

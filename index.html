@@ -23,9 +23,11 @@
         <div class="row">
             <h2>Products</h2>
             <hr class="my-2">
+
             <!-- Column 1 -->
             <div class="col" id="accordion">
-                <!-- Endpoint 1 -->
+
+                <!-- Endpoint GET ALL PRODUCTS -->
                 <div class="input-group mb-3 back-g-blue">
                     <div class="input-group-append">
                         <button class="btn btn-info" type="button" id="getAll">GET</button>
@@ -35,12 +37,13 @@
                             <a data-bs-toggle="collapse" href="#col1">/api/Products</a>
                         </span>
                     </div>
-                </div>
-                <!-- Collapse -->
-                <div class="collapse back-g-blue" id="col1">
-                </div>
 
-                <!-- Endpoint 2 -->
+                </div>
+                <!-- Collapse GET ALL PRODUCTS-->
+                <pre class="collapse back-g-blue" id="col1">
+                </pre>
+
+                <!-- Endpoint POST PRODUCT -->
                 <div class="input-group mb-3 back-g-green" id="postProduct">
                     <div class="input-group-append">
                         <button class="btn btn-success" type="button" id="postProduct">POST</button>
@@ -51,7 +54,7 @@
                         </span>
                     </div>
                 </div>
-                <!-- Collapse -->
+                <!-- Collapse POST PRODUCT-->
                 <div class="collapse back-g-green" id="col2">
                     Name: <input type="text" class="form-control" id="tName">
                     Category: <input type="text" class="form-control" id="tCat">
@@ -62,7 +65,7 @@
                 <p class="collapse back-g-green" id="col21">
                 </p>
 
-                <!-- Endpoint 3 -->
+                <!-- Endpoint GET BY ID -->
                 <div class="input-group mb-3 back-g-blue">
                     <div class="input-group-append">
                         <button class="btn btn-info" type="button" id="getById">GET</button>
@@ -73,12 +76,15 @@
                         </span>
                     </div>
                 </div>
-                <!-- Collapse -->
+                <!-- Collapse GET BY ID -->
                 <div class="collapse back-g-blue" id="col3">
                     Id: <input type="text" class="form-control" id="gId">
+                    <pre id="col33">
+
+                    </pre>
                 </div>
 
-                <!-- Endpoint 4 -->
+                <!-- Endpoint PUT BY ID -->
                 <div class="input-group mb-3 back-g-orange">
                     <div class="input-group-append">
                         <button class="btn btn-warning" type="button" id="putById">PUT</button>
@@ -89,7 +95,7 @@
                         </span>
                     </div>
                 </div>
-                <!-- Collapse -->
+                <!-- Collapse PUT BY ID -->
                 <div class="collapse back-g-orange" id="col4">
                     ID: <input type="text" class="form-control" id="pId">
                     Name: <input type="text" class="form-control" id="pName">
@@ -101,7 +107,7 @@
                 <p class="collapse back-g-orange" id="col41">
                 </p>
 
-                <!-- Endpoint 5 -->
+                <!-- Endpoint DELETE BY ID -->
                 <div class="input-group mb-3 back-g-red">
                     <div class="input-group-append">
                         <button class="btn btn-danger" type="button" id="deleteById">DELETE</button>
@@ -112,14 +118,14 @@
                         </span>
                     </div>
                 </div>
-                <!-- Collapse -->
+                <!-- Collapse DELETE BY ID -->
                 <div class="collapse back-g-red" id="col5">
                     ID: <input type="text" class="form-control" id="tCode">
+                    <p id="col51">
+                    </p>
                 </div>
-                <p class="collapse back-g-red" id="col51">
-                </p>
 
-                <!-- Endpoint 6 -->
+                <!-- Endpoint GET STOCK TRUE OR FALSE -->
                 <div class="input-group mb-3 back-g-blue">
                     <div class="input-group-append">
                         <button class="btn btn-info" type="button" id="getStock">GET</button>
@@ -127,16 +133,33 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">
                             <a data-bs-toggle="collapse" href="#col6">/api/Products/stock</a>
+                            <a data-bs-toggle="collapse" href="#col61"></a>
                         </span>
                     </div>
                 </div>
-                <!-- Collapse -->
+                <!-- Collapse GET STOCK TRUE OR FALSE -->
                 <div class="collapse back-g-blue" id="col6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="stockTrue">
+                        <label class="form-check-label" for="stockTrue">
+                            True
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="stockFalse">
+                        <label class="form-check-label" for="stockFalse">
+                            False
+                        </label>
+                    </div>
+                    <pre id="col61">
+                    </pre>
                 </div>
+                
 
                 <h2>Token</h2>
                 <hr class="my-2">
-                <!-- Endpoint -->
+                <!-- Endpoint GET TOKEN AND SAVE IN LOCALSTORAGE -->
                 <div class="input-group mb-3 back-g-green">
                     <div class="input-group-append">
                         <button class="btn btn-success" type="button" id="postToken">POST</button>
@@ -147,13 +170,14 @@
                         </span>
                     </div>
                 </div>
-                <!-- Collapse -->
+                <!-- Collapse GET TOKEN AND SAVE IN LOCALSTORAGE -->
                 <div class="collapse back-g-green" id="col7">
                     Email: <input type="text" class="form-control" id="tEm">
                     Password: <input type="text" class="form-control" id="tPass">
+                    <pre id="col71">
+                    </pre>
                 </div>
-                <p class="collapse back-g-green" id="col71">
-                </p>
+                
             </div>
         </div>
     </div>
